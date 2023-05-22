@@ -2,11 +2,11 @@ const NodeHelper = require('node_helper');
 const request = require('request');
 
 module.exports = NodeHelper.create({
-    start: function() {
+    start: function () {
         console.log("Starting node_helper for: " + this.name);
     },
 
-    getJEOPARDY: function(url) {
+    getJEOPARDY: function (url) {
         request({
             url: url,
             method: 'GET'
@@ -20,7 +20,7 @@ module.exports = NodeHelper.create({
         });
     },
 
-    socketNotificationReceived: function(notification, payload) {
+    socketNotificationReceived: function (notification, payload) {
         if (notification === 'GET_JEOPARDY') {
             this.getJEOPARDY(payload);
         }

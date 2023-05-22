@@ -12,24 +12,35 @@ Module.register('MMM-Jeopardy', {
   defaults: {
     rotateInterval: 30 * 1000,
     useHeader: false,
-    header: "THIS IS JEOPARDY!",
-    retryDelay: 5000,
-    animationSpeed: 3000,
+    header: "This is Jeopardy!",
     maxWidth: "250px",
+    animationSpeed: 3000,
     initialLoadDelay: 4250,
+    retryDelay: 5000,
     api: 'https://f00d.me/jeopardy/data?count=100',
     user_agent: 'Magic Mirror Module - Jeopardy Game',
-    updateInterval: 60 * 60 * 1000,
+    updateInterval: 60 * 60 * 1000
   },
 
-  requiresVersion: '2.1.0',
+
+  getStyles: function () {
+    return ['MMM-Jeopardy.css'];
+  },
+
+  getTranslations: function () {
+    return {
+      en: 'translations/en.json',
+      es: 'translations/es.json',
+    };
+  },
 
   start: function () {
+    Log.info("Starting module: " + this.name);
+    requiresVersion: '2.1.0',
     this.jeopardy = [];
     this.activeItem = 0;
-    this.loaded = false;
+    this.rotateInterval = null;
     this.scheduleUpdate();
-
     setInterval(() => this.updateDom(), this.config.updateInterval);
   },
 
@@ -75,20 +86,21 @@ Module.register('MMM-Jeopardy', {
       var pic = document.createElement("div");
       var img = document.createElement("img");
       img.classList.add("img");
-      img.src = "modules/MMM-JEOPARDY/pix/2.JPG";
+      img.src = "modules/MMM-Jeopardy/header.png";
       pic.appendChild(img);
       wrapper.appendChild(pic);
 
+      // ...
       var category = document.createElement("div");
-      var str = jeopardy.category.title;
+      var str = jeopardy.category;
       var res = str.toUpperCase();
       category.classList.add("xsmall", "bright");
-      category.innerHTML = "Category: &nbsp" + res;   // jeopardy.category.title;
+      category.innerHTML = "Category: &nbsp" + res;
       wrapper.appendChild(category);
 
       var jeopardyValue = document.createElement("div");
       jeopardyValue.classList.add("xsmall", "bright");
-      jeopardyValue.innerHTML = (jeopardy.value != null) ? "For:   $" + jeopardy.value : "For: $200";
+      jeopardyValue.innerHTML = (jeopardy.value != null) ? "For:   " + jeopardy.value : "For: $200";
       wrapper.appendChild(jeopardyValue);
 
       var jeopardyClue = document.createElement("div");
@@ -99,7 +111,7 @@ Module.register('MMM-Jeopardy', {
       var jeopardyAnswer = document.createElement("div");
       jeopardyAnswer.classList.add("small", "bright");
       setTimeout(function () {
-        jeopardyAnswer.innerHTML = "What is " + jeopardy.answer + "?"
+          jeopardyAnswer.innerHTML = "What is " + jeopardy.answer + "?"
       }, 20 * 1000);
       wrapper.appendChild(jeopardyAnswer);
     }
@@ -141,14 +153,4 @@ Module.register('MMM-Jeopardy', {
     this.updateDom(this.config.initialLoadDelay);
   },
 
-  getStyles: function () {
-    return ['MMM-Jeopardy.css'];
-  },
-
-  getTranslations: function () {
-    return {
-      en: 'translations/en.json',
-      es: 'translations/es.json',
-    };
-  },
 });
