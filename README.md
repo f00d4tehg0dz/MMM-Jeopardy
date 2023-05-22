@@ -10,7 +10,7 @@ Immerse yourself in the familiar format of the game show, where each round begin
 
 * Screenshot of Question and then screenshot of Question with Answer
 
-![](screenshot.png) [](screenshot2.png)
+![](screenshot.png) ![](screenshot2.png)
 
 ## Installation
 
