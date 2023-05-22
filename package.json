@@ -4,15 +4,5 @@
   "description": "Display and Play Jeopardy on the Magic Mirror.",
   "main": "MMM-Jeopardy.js",
   "author": "Adrian Chrysanthou",
-  "license": "MIT",
-  "devDependencies": {
-    "grunt": "latest",
-    "grunt-eslint": "latest",
-    "grunt-jsonlint": "latest",
-    "grunt-markdownlint": "^1.0.13",
-    "grunt-stylelint": "latest",
-    "grunt-yamllint": "latest",
-    "stylelint-config-standard": "latest",
-    "time-grunt": "latest"
-  }
+  "license": "MIT"
 }
