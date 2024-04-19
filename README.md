@@ -21,13 +21,17 @@ Immerse yourself in the familiar format of the game show, where each round begin
 ## Config.js entry and options
 
     {
-        module: 'MMM-Jeopardy',
-        position: 'top_left',
-        config: {
-		    useHeader: false,
-            header: "This is Jeopardy!",
-		    maxWidth: "250px",
-		    animationSpeed: 3000,
+      module: "MMM-Jeopardy",
+      position: "top_right",             		// Works well anywhere
+      config: {
+          useHeader: false,                  // Set to True if you want a header shown
+          header: "This is Jeopardy!",       // Text for Header. Only will show if useHeader is set to true in config
+          maxWidth: "192px",                 // Stretch or constrain the whole container
+          textAlignment: "right",            // Text alignment
+          animationSpeed: 3000,              // How fast the text fades in and fades out. (e.g clue fades in and then fades out)
+          initialLoadDelay: 4250,            // How soon the module loads on Magic Mirror startup, in milliseconds, 4.25 in seconds
+          answerDisplayDuration: 20 * 1000,  // Duration in milliseconds to display the answer before moving to the next question (e.g 20 seconds) 
+          nextQuestionDelay: 10 * 1000,      // Delay in milliseconds after displaying the answer before moving to the next question (e.g 10 seconds)
         }
     },
 

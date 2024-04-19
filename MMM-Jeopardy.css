@@ -1,27 +1,43 @@
 /*
- *
- * MMM-Jeopardy
- *
- * Adrian Chrysanthou
- * MIT Licensed.
- */
-
- .MMM-JEOPARDY .xsmall.bright.light {
-  color: white;               /* Header color. Default is white. */
-  text-align: left;           /* Align header text. (left, center, right) */
+*
+* MMM-Jeopardy
+*
+* Adrian Chrysanthou
+* MIT Licensed.
+*/
+.MMM-Jeopardy .wrapper {
+  display: flex;
+  flex-direction: column;  
+	padding: 5px;
+  gap: 5px;
+	height: 100%;
 }
-
-.MMM-JEOPARDY .xsmall.bright {
-  color: white;               /* Color the clue. Default is white. */
-  text-align: left;           /* Align the clue. (left, center, right) */
+.MMM-Jeopardy .wrapper > div{
+  border-radius: 5px;
+  padding: 2px;
+  /* Apply text alignment based on the configuration */
+  text-align: var(--textAlignment, left);
 }
-
-.MMM-JEOPARDY .small.bright {
-  color: yellow;               /* Color the answer. Default is white. */
-  text-align: left;           /* Align the answer. (left, center, right) */
+.MMM-Jeopardy .xsmall.bright.light {
+	color: white;
+	/* Header color. Default is white. */
+	text-align: var(--textAlignment, left);
+	/* Align header text. (left, center, right) */
 }
-
-.MMM-JEOPARDY .img {
-	width: 250px;
-	margin-bottom: -20px;
+.MMM-Jeopardy .xsmall.bright {
+	color: white;
+	/* Color the clue. Default is white. */
+	text-align: var(--textAlignment, left);
+	/* Align the clue. (left, center, right) */
+}
+.MMM-Jeopardy .small.bright {
+	color: yellow;
+	/* Color the answer. Default is white. */
+	text-align: var(--textAlignment, left);
+	/* Align the answer. (left, center, right) */
+}
+.MMM-Jeopardy .img {
+  align-self:auto;
+  padding: 0;
+	margin-bottom: -10px;
 }
