@@ -1,43 +1,87 @@
 /*
-*
 * MMM-Jeopardy
 *
 * Adrian Chrysanthou
 * MIT Licensed.
 */
+.MMM-Jeopardy {
+    font-size: 16pt;
+    text-align: right;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
 .MMM-Jeopardy .wrapper {
-  display: flex;
-  flex-direction: column;  
-	padding: 5px;
-  gap: 5px;
-	height: 100%;
+    display: block;
+    padding: 0;
+    gap: 1em;
 }
-.MMM-Jeopardy .wrapper > div{
-  border-radius: 5px;
-  padding: 2px;
-  /* Apply text alignment based on the configuration */
-  text-align: var(--textAlignment, left);
+
+.MMM-Jeopardy header {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    margin-bottom: 0.5em;
 }
-.MMM-Jeopardy .xsmall.bright.light {
-	color: white;
-	/* Header color. Default is white. */
-	text-align: var(--textAlignment, left);
-	/* Align header text. (left, center, right) */
+
+.MMM-Jeopardy table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    /* background: rgba(0, 0, 0, 0.5); */
+    border: none;
 }
-.MMM-Jeopardy .xsmall.bright {
-	color: white;
-	/* Color the clue. Default is white. */
-	text-align: var(--textAlignment, left);
-	/* Align the clue. (left, center, right) */
+
+.MMM-Jeopardy table td {
+    padding: 0.5em;
+    text-align: left;
+    font-size: 0.9em;
+    color: white;
+    border-bottom: none;
 }
+
+.MMM-Jeopardy table td.field {
+    font-weight: bold;
+    color: #ffcc00;
+    width: 40%;
+}
+
+.MMM-Jeopardy table td.value {
+    width: 60%;
+}
+
+.MMM-Jeopardy table tr:last-child td {
+    border-bottom: none;
+}
+
 .MMM-Jeopardy .small.bright {
-	color: yellow;
-	/* Color the answer. Default is white. */
-	text-align: var(--textAlignment, left);
-	/* Align the answer. (left, center, right) */
+    color: white;
+    font-size: 1em;
+    text-align: inherit;
 }
-.MMM-Jeopardy .img {
-  align-self:auto;
-  padding: 0;
-	margin-bottom: -10px;
+
+.MMM-Jeopardy .dimmed.light.small {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.8em;
+    text-align: center;
+}
+
+.MMM-Jeopardy #jeopardy-answer {
+    font-style: italic;
+    color: #ff9900;
+    text-align: center;
+    font-size: 1.1em;
+    margin-top: 1em;
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
